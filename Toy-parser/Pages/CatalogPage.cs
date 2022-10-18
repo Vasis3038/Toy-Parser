@@ -15,6 +15,7 @@ public class CatalogPage
     public List<string> GetToysPagesLinksList(IDocument doc)
     {
         List<string> toysPagesLinksList = new();
+        var e = doc.QuerySelector(ToysListLocator);
         IHtmlCollection<IElement> toysPages = doc.QuerySelector(ToysListLocator)?.Children;
 
         if (toysPages is null)
