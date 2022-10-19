@@ -4,9 +4,9 @@ using Toy_Parser.Pages;
 
 public class Program
 {
-    private static string host = @"https://www.toy.ru";
+    private const string Host = @"https://www.toy.ru";
     private static string url = @"https://www.toy.ru/catalog/boy_transport/";
-    private static string pathToDataFile = @"";
+    private const string PathToDataFile = @"";
 
     private static async Task Main(string[] args)
     {
@@ -40,9 +40,9 @@ public class Program
                       .Append("\n");
             }
 
-            File.AppendAllTextAsync(pathToDataFile, result.ToString());
-            url = host + catalogPage.GetNextCotalogPageLink(doc);
+            File.AppendAllTextAsync(PathToDataFile, result.ToString());
+            url = Host + catalogPage.GetNextCotalogPageLink(doc);
         }
-        while (!url.Equals(host + "#"));
+        while (!url.Equals(Host + "#"));
     }
 }
